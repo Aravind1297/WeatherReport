@@ -1,0 +1,10 @@
+runtime : java17
+instance_class: F1
+
+env variables:
+  weatherstack_api_key = 851b53c5af251377c0ac9a835fb9d5e1
+  weatherstack_api_url = http://api.weatherstack.com
+handlers:
+  -url: /.*
+   script: auto
+   secure: always

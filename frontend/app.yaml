@@ -1,0 +1,17 @@
+runtime: nodejs20
+instance_class: F1
+
+handlers:
+  - url: /(.*)
+    static_files: dist/\1
+    upload: dist/(.*)
+    secure: always
+    http_headers:
+      X-Content-Type-Options: nosniff
+      X-Frame-Options: DENY
+      X-XSS-Protection: 1; mode=block
+
+  - url: /.*
+    static_files: dist/index.html
+    upload: dist/index.html
+    secure: always
