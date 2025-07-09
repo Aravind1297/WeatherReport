@@ -83,3 +83,9 @@ cd backend
 2.Create feature/<name> branch
 3.Make changes & test
 4.Create a Pull Request to main
+
+
+
+License: GNU GENERAL PUBLIC LICENSE
+
+Built by Aravind Thulasiraman — feel free to reach out for questions or feedback.
