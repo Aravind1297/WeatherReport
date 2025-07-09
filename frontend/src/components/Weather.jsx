@@ -238,32 +238,34 @@ const Weather = () => {
         alt={weatherData?.weatherDescription?.[0] || 'weather icon'}
         className='weather-icon'
       />
-      <p className='temperature'>{(weatherData && weatherData.temperature) ? `${weatherData.temperature}°C` : '16°C'}</p>
+      <p className='temperature'>
+        {loading ? '__' : (weatherData && weatherData.temperature !== undefined && weatherData.temperature !== null && weatherData.temperature !== '' ? `${weatherData.temperature}°C` : '__')}
+      </p>
       <div className="weather-data">
         <div className="col">
           <img src={humidity_icon} alt="" />
           <div>
-            <p>{(weatherData && weatherData.humidity) ? `${weatherData.humidity} %` : '91 %'}</p>
+            <p>{loading ? '__' : (weatherData && weatherData.humidity !== undefined && weatherData.humidity !== null && weatherData.humidity !== '' ? `${weatherData.humidity} %` : '__')}</p>
             <span>Humidity</span>
           </div>
         </div>
         <div className="col">
           <img src={wind_icon} alt="" />
           <div>
-                <p>{(weatherData && weatherData.windSpeed != null && weatherData.windSpeed !== '') ? `${Number(weatherData.windSpeed)} Km/h` : '3.6 Km/h'}</p>
+                <p>{loading ? '__' : (weatherData && weatherData.windSpeed != null && weatherData.windSpeed !== '' ? `${Number(weatherData.windSpeed)} Km/h` : '__')}</p>
             <span>Wind Speed</span>
           </div>
         </div>
       </div>
       <div className="weather-description-center">
-        <span className="weather-description-text">{(weatherData && weatherData.weatherDescription?.[0]) || 'Mostly Cloudy'}</span>
+        <span className="weather-description-text">{loading ? '__' : (weatherData && weatherData.weatherDescription?.[0]) || '__'}</span>
       </div>
       <div className="air-quality-center">
         <span className="air-quality-label">Air Quality (PM2.5): </span>
         <span className="air-quality-value">
-          {weatherData && weatherData.pm2_5 !== undefined
+          {loading ? '__' : (weatherData && weatherData.pm2_5 !== undefined
             ? `${Number(weatherData.pm2_5).toFixed(1)} (${getAirQualityLabel(weatherData.pm2_5)})`
-            : '--'}
+            : '__')}
         </span>
       </div>
       {/* Optionally show more: feelsLike, pressure, country, region, lat/lon, etc. */}
