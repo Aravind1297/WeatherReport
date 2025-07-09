@@ -31,17 +31,17 @@ Features:
 
 2. Backend Setup
    cd backend
-  # Add your API key in application.properties (or set via env):
+  **# Add your API key in application.properties (or set via env):
   # weatherstack.api.key=YOUR_API_KEY
-  # weatherstack.api.url=http://api.weatherstack.com
+  # weatherstack.api.url=http://api.weatherstack.com**
   ./mvnw clean package
   gcloud app deploy app.yaml
 
 3. Frontend Setup
    cd ../frontend
   npm install
-  # Create .env:
-  # VITE_WEATHER_API_URL=https://<your-app-id>.appspot.com/weather/data
+  **# Create .env:
+  # VITE_WEATHER_API_URL=https://<your-app-id>.appspot.com/weather/data**
   npm run dev         # Development mode
   npm run build       # Production build
 
